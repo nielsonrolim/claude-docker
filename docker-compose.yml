@@ -12,5 +12,5 @@ services:
       - ./.tmux.conf:/home/claude/.tmux.conf:ro
     stdin_open: true
     tty: true
-    restart: unless-stopped
+    restart: on-failure
     working_dir: /home/claude/Projects
