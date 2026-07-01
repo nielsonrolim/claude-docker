@@ -15,9 +15,6 @@ RUN apt-get update && apt-get install -y \
     libyaml-dev \
     zlib1g-dev \
     libgmp-dev \
-    zsh \
-    zsh-syntax-highlighting \
-    zsh-autosuggestions \
     unzip \
     htop \
     locales \
@@ -57,19 +54,20 @@ ENV CXXFLAGS="-Wno-implicit-function-declaration"
 RUN /home/linuxbrew/.linuxbrew/bin/brew update && \
     /home/linuxbrew/.linuxbrew/bin/brew cleanup
 
-RUN /home/linuxbrew/.linuxbrew/bin/brew install git gh jq yq tree btop fzf bat fd ripgrep lazygit direnv httpie wget tmux tmuxpack/tpack/tpack lsd neovim
+RUN /home/linuxbrew/.linuxbrew/bin/brew install git gh jq yq tree btop fzf bat fd ripgrep lazygit direnv httpie wget tmux tmuxpack/tpack/tpack lsd neovim zsh zsh-completions zsh-fast-syntax-highlighting zsh-autosuggestions
 
-RUN echo "/usr/bin/zsh" | sudo tee -a /etc/shells
+RUN echo "/home/linuxbrew/.linuxbrew/bin/zsh" | sudo tee -a /etc/shells
 
-RUN sudo chsh -s /usr/bin/zsh claude
+RUN sudo chsh -s /home/linuxbrew/.linuxbrew/bin/zsh claude
 
 RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 
 RUN echo 'eval "$(/home/claude/.local/bin/mise activate zsh)"' >> /home/claude/.zshrc && \
     echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> /home/claude/.zshrc && \
     echo 'export TERM=xterm-256color' >> /home/claude/.zshrc && \
-    echo 'source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh' >> /home/claude/.zshrc && \
-    echo 'source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh' >> /home/claude/.zshrc && \
+    echo 'fpath=(/home/linuxbrew/.linuxbrew/share/zsh-completions $fpath)' >> /home/claude/.zshrc && \
+    echo 'source /home/linuxbrew/.linuxbrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh' >> /home/claude/.zshrc && \
+    echo 'source /home/linuxbrew/.linuxbrew/share/zsh-fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh' >> /home/claude/.zshrc && \
     echo '' >> /home/claude/.zshrc && \
     echo 'alias be="bundle exec"' >> /home/claude/.zshrc && \
     echo 'alias fix-dir-permissions="sudo chown -R claude:claude ."' >> /home/claude/.zshrc && \

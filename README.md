@@ -41,6 +41,10 @@ docker compose exec claude-docker claude
 |------|--------------|-------------|
 | Node.js (LTS) | mise | JavaScript runtime |
 | Homebrew (Linux) | brew | Package manager |
+| Zsh | brew | Shell |
+| zsh-completions | brew | Additional completion definitions for zsh |
+| zsh-fast-syntax-highlighting | brew | Fast syntax highlighting for zsh |
+| zsh-autosuggestions | brew | Fish-like autosuggestions for zsh |
 | Git | brew | Version control system |
 | GitHub CLI (`gh`) | brew | Command-line tool for GitHub |
 | Neovim | brew | Text editor |
@@ -66,7 +70,8 @@ docker compose exec claude-docker claude
 
 ### Zsh Plugins
 
-- `zsh-syntax-highlighting`
+- `zsh-completions`
+- `zsh-fast-syntax-highlighting`
 - `zsh-autosuggestions`
 
 ### Aliases

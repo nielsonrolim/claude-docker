@@ -1,4 +1,4 @@
-#!/usr/bin/zsh
+#!/usr/bin/env zsh
 set -e
 
 tpack install > /dev/null 2>&1
@@ -10,4 +10,4 @@ echo "brew: $(brew --version 2>/dev/null | head -1 || echo 'não encontrado')"
 echo "zsh: $(zsh --version)"
 echo "Use: docker compose exec claude-docker claude"
 
-exec /usr/bin/zsh -l
+exec zsh -l
