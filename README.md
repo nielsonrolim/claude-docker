@@ -27,6 +27,7 @@ docker compose run --rm claude-docker claude
 - Debian Trixie
 - `claude` user with sudo access
 - Zsh + Oh My Zsh
+- Catppuccin tmux theme
 
 ### Tools
 
@@ -34,11 +35,27 @@ docker compose run --rm claude-docker claude
 |------|--------------|
 | Node.js (LTS) | mise |
 | Homebrew (Linux) | brew |
-| GitHub CLI (`gh`) | brew |
 | Git | apt |
-| Vim | apt |
+| GitHub CLI (`gh`) | brew |
+| Neovim | brew |
+| jq | brew |
+| yq | brew |
+| tree | brew |
+| btop | brew |
+| fzf | brew |
+| bat | brew |
+| fd | brew |
 | ripgrep | apt |
-| lsd | apt |
+| lsd | brew |
+| lazygit | brew |
+| direnv | brew |
+| httpie | brew |
+| wget | brew |
+| tmux | brew |
+| tpack | brew |
+| Vim | apt |
+| htop | apt |
+| unzip | apt |
 | Claude Code | npm |
 
 ### Zsh Plugins
@@ -63,6 +80,7 @@ alias brew-upgrade="brew update && brew upgrade && brew upgrade --cask --greedy"
 | `~/Projects` | `/home/claude/Projects` | RW |
 | `~/.ssh` | `/home/claude/.ssh` | RO |
 | `~/.gitconfig` | `/home/claude/.gitconfig` | RO |
+| `~/.tmux.conf` | `/home/claude/.tmux.conf` | RO |
 
 ## Environment Variables
 
