@@ -14,10 +14,10 @@ Docker container for [Claude Code](https://docs.anthropic.com/en-us/docs/claude-
 docker compose build
 
 # Enter the container
-docker compose run --rm claude-nr
+docker compose run --rm claude-docker
 
 # Or run claude directly
-docker compose run --rm claude-nr claude
+docker compose run --rm claude-docker claude
 ```
 
 ## What's included

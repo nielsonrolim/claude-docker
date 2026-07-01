@@ -1,5 +1,5 @@
 services:
-  claude-nr:
+  claude-docker:
     build: .
     container_name: claude-code
     env_file:
