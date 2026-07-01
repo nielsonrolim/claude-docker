@@ -4,7 +4,6 @@ RUN apt-get update && apt-get install -y \
     curl \
     ca-certificates \
     gnupg \
-    git \
     vim \
     sudo \
     build-essential \
@@ -18,8 +17,9 @@ RUN apt-get update && apt-get install -y \
     zsh \
     zsh-syntax-highlighting \
     zsh-autosuggestions \
-    lsd \
     ripgrep \
+    unzip \
+    htop \
     && rm -rf /var/lib/apt/lists/*
 
 RUN useradd -m -s /bin/bash claude && \
@@ -31,20 +31,26 @@ RUN curl https://mise.run | sh
 
 RUN /home/claude/.local/bin/mise use --global nodejs@lts
 
-RUN git clone --depth=1 https://github.com/Homebrew/brew /home/claude/.linuxbrew/Homebrew
+RUN sudo mkdir -p /home/linuxbrew/.linuxbrew && \
+    sudo chown -R claude:claude /home/linuxbrew
 
-RUN mkdir -p /home/claude/.linuxbrew/bin && \
-    ln -s /home/claude/.linuxbrew/Homebrew/bin/brew /home/claude/.linuxbrew/bin/brew
+RUN git clone --depth=1 https://github.com/Homebrew/brew /home/linuxbrew/.linuxbrew/Homebrew
 
-ENV PATH="/home/claude/.linuxbrew/bin:/home/claude/.local/bin:${PATH}"
-ENV HOMEBREW_PREFIX="/home/claude/.linuxbrew"
-ENV HOMEBREW_CELLAR="/home/claude/.linuxbrew/Cellar"
-ENV HOMEBREW_REPOSITORY="/home/claude/.linuxbrew/Homebrew"
+RUN mkdir -p /home/linuxbrew/.linuxbrew/bin && \
+    ln -s /home/linuxbrew/.linuxbrew/Homebrew/bin/brew /home/linuxbrew/.linuxbrew/bin/brew
 
-RUN /home/claude/.linuxbrew/bin/brew update && \
-    /home/claude/.linuxbrew/bin/brew cleanup
+ENV PATH="/home/linuxbrew/.linuxbrew/bin:/home/claude/.local/bin:${PATH}"
+ENV HOMEBREW_PREFIX="/home/linuxbrew/.linuxbrew"
+ENV HOMEBREW_CELLAR="/home/linuxbrew/.linuxbrew/Cellar"
+ENV HOMEBREW_REPOSITORY="/home/linuxbrew/.linuxbrew/Homebrew"
 
-RUN /home/claude/.linuxbrew/bin/brew install gh
+ENV CFLAGS="-Wno-implicit-function-declaration"
+ENV CXXFLAGS="-Wno-implicit-function-declaration"
+
+RUN /home/linuxbrew/.linuxbrew/bin/brew update && \
+    /home/linuxbrew/.linuxbrew/bin/brew cleanup
+
+RUN /home/linuxbrew/.linuxbrew/bin/brew install gh jq yq tree btop fzf bat fd lazygit direnv httpie wget tmux tmuxpack/tpack/tpack lsd git neovim
 
 RUN echo "/usr/bin/zsh" | sudo tee -a /etc/shells
 
@@ -53,17 +59,19 @@ RUN sudo chsh -s /usr/bin/zsh claude
 RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 
 RUN echo 'eval "$(/home/claude/.local/bin/mise activate zsh)"' >> /home/claude/.zshrc && \
-    echo 'eval "$(/home/claude/.linuxbrew/bin/brew shellenv)"' >> /home/claude/.zshrc && \
+    echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> /home/claude/.zshrc && \
     echo 'source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh' >> /home/claude/.zshrc && \
     echo 'source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh' >> /home/claude/.zshrc && \
     echo '' >> /home/claude/.zshrc && \
     echo 'alias be="bundle exec"' >> /home/claude/.zshrc && \
     echo 'alias fix-dir-permissions="sudo chown -R claude:claude ."' >> /home/claude/.zshrc && \
-    echo 'alias docker-compose="docker compose"' >> /home/claude/.zshrc && \
     echo 'alias ls="lsd"' >> /home/claude/.zshrc && \
     echo 'alias brew-upgrade="brew update && brew upgrade && brew upgrade --cask --greedy"' >> /home/claude/.zshrc
 
 RUN /home/claude/.local/bin/mise exec -- npm install -g @anthropic-ai/claude-code
+
+RUN mkdir -p /home/claude/.config/tmux/plugins/catppuccin && \
+    git clone -b v2.3.0 https://github.com/catppuccin/tmux.git /home/claude/.config/tmux/plugins/catppuccin/tmux
 
 WORKDIR /app
 

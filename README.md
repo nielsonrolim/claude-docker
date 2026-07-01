@@ -51,7 +51,6 @@ docker compose run --rm claude-docker claude
 ```bash
 alias be="bundle exec"
 alias fix-dir-permissions="sudo chown -R claude:claude ."
-alias docker-compose="docker compose"
 alias ls="lsd"
 alias brew-upgrade="brew update && brew upgrade && brew upgrade --cask --greedy"
 ```
