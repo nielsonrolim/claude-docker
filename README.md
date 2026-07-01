@@ -35,7 +35,7 @@ docker compose run --rm claude-docker claude
 |------|--------------|
 | Node.js (LTS) | mise |
 | Homebrew (Linux) | brew |
-| Git | apt |
+| Git | brew |
 | GitHub CLI (`gh`) | brew |
 | Neovim | brew |
 | jq | brew |
