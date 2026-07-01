@@ -1,0 +1,15 @@
+services:
+  claude-nr:
+    build: .
+    container_name: claude-code
+    env_file:
+      - .env
+    volumes:
+      - ${HOME}/.claude:/home/claude/.claude
+      - ${HOME}/Projects:/home/claude/Projects
+      - ${HOME}/.ssh:/home/claude/.ssh:ro
+      - ${HOME}/.gitconfig:/home/claude/.gitconfig:ro
+    stdin_open: true
+    tty: true
+    restart: unless-stopped
+    working_dir: /home/claude/Projects
