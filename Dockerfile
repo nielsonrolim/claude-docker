@@ -21,7 +21,14 @@ RUN apt-get update && apt-get install -y \
     ripgrep \
     unzip \
     htop \
+    locales \
     && rm -rf /var/lib/apt/lists/*
+
+RUN sed -i '/en_US.UTF-8/s/^# //g' /etc/locale.gen && locale-gen
+
+ENV LANG=en_US.UTF-8
+ENV LANGUAGE=en_US:en
+ENV LC_ALL=en_US.UTF-8
 
 RUN useradd -m -s /bin/bash claude && \
     echo "claude ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/claude
@@ -67,7 +74,8 @@ RUN echo 'eval "$(/home/claude/.local/bin/mise activate zsh)"' >> /home/claude/.
     echo 'alias be="bundle exec"' >> /home/claude/.zshrc && \
     echo 'alias fix-dir-permissions="sudo chown -R claude:claude ."' >> /home/claude/.zshrc && \
     echo 'alias ls="lsd"' >> /home/claude/.zshrc && \
-    echo 'alias brew-upgrade="brew update && brew upgrade && brew upgrade --cask --greedy"' >> /home/claude/.zshrc
+    echo 'alias brew-upgrade="brew update && brew upgrade && brew upgrade --cask --greedy"' >> /home/claude/.zshrc && \
+    echo 'alias tmux-main="tmux new-session -A -s main"' >> /home/claude/.zshrc
 
 RUN /home/claude/.local/bin/mise exec -- npm install -g @anthropic-ai/claude-code
 

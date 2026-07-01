@@ -70,6 +70,7 @@ alias be="bundle exec"
 alias fix-dir-permissions="sudo chown -R claude:claude ."
 alias ls="lsd"
 alias brew-upgrade="brew update && brew upgrade && brew upgrade --cask --greedy"
+alias tmux-main="tmux new-session -A -s main"
 ```
 
 ## Volumes
