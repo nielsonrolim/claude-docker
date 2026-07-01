@@ -1,13 +1,13 @@
 #!/usr/bin/zsh
 set -e
 
-exec tpack install
+tpack install > /dev/null 2>&1
 
 echo "Claude Code container pronto."
 echo "Você está logado como: $(whoami)"
 echo "mise: $(mise --version 2>/dev/null || echo 'não encontrado')"
 echo "brew: $(brew --version 2>/dev/null | head -1 || echo 'não encontrado')"
 echo "zsh: $(zsh --version)"
-echo "Use: docker compose exec claude claude"
+echo "Use: docker compose exec claude-docker claude"
 
 exec /usr/bin/zsh -l
