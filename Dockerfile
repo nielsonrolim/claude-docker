@@ -3,6 +3,7 @@ FROM debian:trixie
 RUN apt-get update && apt-get install -y \
     curl \
     ca-certificates \
+    git \
     gnupg \
     vim \
     sudo \
@@ -50,7 +51,7 @@ ENV CXXFLAGS="-Wno-implicit-function-declaration"
 RUN /home/linuxbrew/.linuxbrew/bin/brew update && \
     /home/linuxbrew/.linuxbrew/bin/brew cleanup
 
-RUN /home/linuxbrew/.linuxbrew/bin/brew install gh jq yq tree btop fzf bat fd lazygit direnv httpie wget tmux tmuxpack/tpack/tpack lsd git neovim
+RUN /home/linuxbrew/.linuxbrew/bin/brew install git gh jq yq tree btop fzf bat fd lazygit direnv httpie wget tmux tmuxpack/tpack/tpack lsd neovim
 
 RUN echo "/usr/bin/zsh" | sudo tee -a /etc/shells
 
