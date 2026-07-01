@@ -31,32 +31,32 @@ docker compose run --rm claude-docker claude
 
 ### Tools
 
-| Tool | Installation |
-|------|--------------|
-| Node.js (LTS) | mise |
-| Homebrew (Linux) | brew |
-| Git | brew |
-| GitHub CLI (`gh`) | brew |
-| Neovim | brew |
-| jq | brew |
-| yq | brew |
-| tree | brew |
-| btop | brew |
-| fzf | brew |
-| bat | brew |
-| fd | brew |
-| ripgrep | brew |
-| lsd | brew |
-| lazygit | brew |
-| direnv | brew |
-| httpie | brew |
-| wget | brew |
-| tmux | brew |
-| tpack | brew |
-| Vim | apt |
-| htop | apt |
-| unzip | apt |
-| Claude Code | npm |
+| Tool | Installation | Description |
+|------|--------------|-------------|
+| Node.js (LTS) | mise | JavaScript runtime |
+| Homebrew (Linux) | brew | Package manager |
+| Git | brew | Version control system |
+| GitHub CLI (`gh`) | brew | Command-line tool for GitHub |
+| Neovim | brew | Text editor |
+| jq | brew | Command-line JSON processor |
+| yq | brew | Command-line YAML/XML/TOML processor |
+| tree | brew | Recursive directory listing |
+| btop | brew | Resource monitor |
+| fzf | brew | Fuzzy finder |
+| bat | brew | `cat` clone with syntax highlighting |
+| fd | brew | Simple, fast alternative to `find` |
+| ripgrep | brew | Fast recursive line-oriented search tool |
+| lsd | brew | Modern `ls` replacement with icons and colors |
+| lazygit | brew | Terminal UI for git |
+| direnv | brew | Loads/unloads environment variables per directory |
+| httpie | brew | User-friendly HTTP client |
+| wget | brew | Command-line file downloader |
+| tmux | brew | Terminal multiplexer |
+| tpack | brew | Plugin manager for tmux |
+| Vim | apt | Text editor |
+| htop | apt | Interactive process viewer |
+| unzip | apt | Extracts `.zip` archives |
+| Claude Code | npm | AI coding assistant CLI |
 
 ### Zsh Plugins
 
