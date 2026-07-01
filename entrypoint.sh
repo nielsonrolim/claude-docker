@@ -1,6 +1,8 @@
 #!/usr/bin/zsh
 set -e
 
+exec tpack install
+
 echo "Claude Code container pronto."
 echo "Você está logado como: $(whoami)"
 echo "mise: $(mise --version 2>/dev/null || echo 'não encontrado')"
