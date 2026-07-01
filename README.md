@@ -82,7 +82,6 @@ alias tmux-main="tmux new-session -A -s main"
 | `~/.ssh` | `/home/claude/.ssh` | RO |
 | `~/.gitconfig` | `/home/claude/.gitconfig` | RO |
 | `./.tmux.conf` | `/home/claude/.tmux.conf` | RO |
-| `~/.tmux.conf` | `/home/claude/.tmux.conf` | RO |
 
 ## Environment Variables
 
