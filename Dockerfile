@@ -18,7 +18,6 @@ RUN apt-get update && apt-get install -y \
     zsh \
     zsh-syntax-highlighting \
     zsh-autosuggestions \
-    ripgrep \
     unzip \
     htop \
     locales \
@@ -58,7 +57,7 @@ ENV CXXFLAGS="-Wno-implicit-function-declaration"
 RUN /home/linuxbrew/.linuxbrew/bin/brew update && \
     /home/linuxbrew/.linuxbrew/bin/brew cleanup
 
-RUN /home/linuxbrew/.linuxbrew/bin/brew install git gh jq yq tree btop fzf bat fd lazygit direnv httpie wget tmux tmuxpack/tpack/tpack lsd neovim
+RUN /home/linuxbrew/.linuxbrew/bin/brew install git gh jq yq tree btop fzf bat fd ripgrep lazygit direnv httpie wget tmux tmuxpack/tpack/tpack lsd neovim
 
 RUN echo "/usr/bin/zsh" | sudo tee -a /etc/shells
 
@@ -79,6 +78,8 @@ RUN echo 'eval "$(/home/claude/.local/bin/mise activate zsh)"' >> /home/claude/.
     echo 'alias tmux-main="tmux new-session -A -s main"' >> /home/claude/.zshrc
 
 RUN /home/claude/.local/bin/mise exec -- npm install -g @anthropic-ai/claude-code
+
+RUN echo '{}' > /home/claude/.claude.json
 
 RUN mkdir -p /home/claude/.config/tmux/plugins/catppuccin && \
     git clone -b v2.3.0 https://github.com/catppuccin/tmux.git /home/claude/.config/tmux/plugins/catppuccin/tmux

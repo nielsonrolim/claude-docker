@@ -45,7 +45,7 @@ docker compose run --rm claude-docker claude
 | fzf | brew |
 | bat | brew |
 | fd | brew |
-| ripgrep | apt |
+| ripgrep | brew |
 | lsd | brew |
 | lazygit | brew |
 | direnv | brew |
