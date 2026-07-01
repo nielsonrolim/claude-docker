@@ -68,6 +68,7 @@ RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master
 
 RUN echo 'eval "$(/home/claude/.local/bin/mise activate zsh)"' >> /home/claude/.zshrc && \
     echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> /home/claude/.zshrc && \
+    echo 'export TERM=xterm-256color' >> /home/claude/.zshrc && \
     echo 'source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh' >> /home/claude/.zshrc && \
     echo 'source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh' >> /home/claude/.zshrc && \
     echo '' >> /home/claude/.zshrc && \
