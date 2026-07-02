@@ -10,8 +10,8 @@ services:
       - ${HOME}/.ssh:/home/claude/.ssh:ro
       - ${HOME}/.gitconfig:/home/claude/.gitconfig:ro
       - ./.tmux.conf:/home/claude/.tmux.conf:ro
-      - ./.claude.json:/home/claude/.claude.json:ro
-      - ./.claude-credentials.json:/home/claude/.claude/.credentials.json:ro
+      - ./.claude.json:/home/claude/.claude.json
+      - ./.claude-credentials.json:/home/claude/.claude/.credentials.json
     stdin_open: true
     tty: true
     restart: on-failure

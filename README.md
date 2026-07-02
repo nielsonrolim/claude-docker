@@ -93,8 +93,8 @@ alias tmux-main="tmux new-session -A -s main"
 | `~/.ssh` | `/home/claude/.ssh` | RO |
 | `~/.gitconfig` | `/home/claude/.gitconfig` | RO |
 | `./.tmux.conf` | `/home/claude/.tmux.conf` | RO |
-| `./.claude.json` | `/home/claude/.claude.json` | RO |
-| `./.claude-credentials.json` | `/home/claude/.claude/.credentials.json` | RO |
+| `./.claude.json` | `/home/claude/.claude.json` | RW |
+| `./.claude-credentials.json` | `/home/claude/.claude/.credentials.json` | RW |
 
 ## Environment Variables
 
