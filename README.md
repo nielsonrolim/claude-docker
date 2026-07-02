@@ -66,7 +66,7 @@ docker compose exec claude-docker claude
 | Vim | apt | Text editor |
 | htop | apt | Interactive process viewer |
 | unzip | apt | Extracts `.zip` archives |
-| Claude Code | npm | AI coding assistant CLI |
+| Claude Code | brew | AI coding assistant CLI |
 
 ### Zsh Plugins
 
@@ -93,6 +93,7 @@ alias tmux-main="tmux new-session -A -s main"
 | `~/.ssh` | `/home/claude/.ssh` | RO |
 | `~/.gitconfig` | `/home/claude/.gitconfig` | RO |
 | `./.tmux.conf` | `/home/claude/.tmux.conf` | RO |
+| `./.claude.json` | `/home/claude/.claude.json` | RO |
 
 ## Environment Variables
 
