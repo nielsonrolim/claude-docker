@@ -6,11 +6,11 @@ services:
       - .env
     volumes:
       - ./.claude:/home/claude/.claude
+      - ./.claude.json:/home/claude/.claude.json
+      - ./.tmux.conf:/home/claude/.tmux.conf:ro
       - ${HOME}/Projects:/home/claude/Projects
       - ${HOME}/.ssh:/home/claude/.ssh:ro
       - ${HOME}/.gitconfig:/home/claude/.gitconfig:ro
-      - ./.tmux.conf:/home/claude/.tmux.conf:ro
-      - ./.claude.json:/home/claude/.claude.json
     stdin_open: true
     tty: true
     restart: on-failure

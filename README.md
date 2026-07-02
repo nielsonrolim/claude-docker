@@ -10,9 +10,6 @@ Docker container for [Claude Code](https://docs.anthropic.com/en-us/docs/claude-
 ## Usage
 
 ```bash
-# Create your .env file
-cp .env.example .env
-
 # Build and start the container
 ./start.sh
 
