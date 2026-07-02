@@ -11,7 +11,13 @@ services:
       - ${HOME}/Projects:/home/claude/Projects
       - ${HOME}/.ssh:/home/claude/.ssh:ro
       - ${HOME}/.gitconfig:/home/claude/.gitconfig:ro
+    networks:
+      - platform_default
     stdin_open: true
     tty: true
     restart: on-failure
     working_dir: /home/claude/Projects
+
+networks:
+  platform_default:
+    external: true
