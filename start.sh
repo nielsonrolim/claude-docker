@@ -1,5 +1,5 @@
 #!/bin/bash
 touch .env
-touch .claude.json
+echo '{}' > .claude.json
 mkdir -p .claude
 docker compose up -d
