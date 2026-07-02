@@ -78,6 +78,8 @@ RUN echo 'eval "$(/home/claude/.local/bin/mise activate zsh)"' >> /home/claude/.
 # RUN brew install --cask claude-code
 RUN /home/claude/.local/bin/mise exec -- npm install -g @anthropic-ai/claude-code
 
+RUN echo '{}' > /home/claude/.claude.json
+
 RUN mkdir -p /home/claude/.config/tmux/plugins/catppuccin && \
     git clone -b v2.3.0 https://github.com/catppuccin/tmux.git /home/claude/.config/tmux/plugins/catppuccin/tmux
 
