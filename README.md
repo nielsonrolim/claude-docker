@@ -94,7 +94,6 @@ alias tmux-main="tmux new-session -A -s main"
 | `~/.gitconfig` | `/home/claude/.gitconfig` | RO |
 | `./.tmux.conf` | `/home/claude/.tmux.conf` | RO |
 | `./.claude.json` | `/home/claude/.claude.json` | RW |
-| `./.claude-credentials.json` | `/home/claude/.claude/.credentials.json` | RW |
 
 ## Environment Variables
 
