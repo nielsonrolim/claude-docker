@@ -10,6 +10,9 @@ Docker container for [Claude Code](https://docs.anthropic.com/en-us/docs/claude-
 ## Usage
 
 ```bash
+# Create your .env file
+cp .env.example .env
+
 # Build and start the container
 ./start.sh
 
@@ -60,7 +63,7 @@ docker compose exec claude-docker claude
 | Vim | apt | Text editor |
 | htop | apt | Interactive process viewer |
 | unzip | apt | Extracts `.zip` archives |
-| Claude Code | npm | AI coding assistant CLI |
+| Claude Code | install script | AI coding assistant CLI |
 
 ### Zsh Plugins
 
