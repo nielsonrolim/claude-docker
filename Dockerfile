@@ -15,6 +15,7 @@ RUN apt-get update && apt-get install -y \
     libyaml-dev \
     zlib1g-dev \
     libgmp-dev \
+    libicu-dev \
     unzip \
     htop \
     locales \
@@ -75,7 +76,7 @@ RUN echo 'eval "$(/home/claude/.local/bin/mise activate zsh)"' >> /home/claude/.
     echo 'alias brew-upgrade="brew update && brew upgrade && brew upgrade --cask --greedy"' >> /home/claude/.zshrc && \
     echo 'alias tmux-main="tmux new-session -A -s main"' >> /home/claude/.zshrc
 
-RUN /home/claude/.local/bin/mise exec -- npm install -g @anthropic-ai/claude-code
+RUN curl -fsSL https://claude.ai/install.sh | bash
 
 WORKDIR /app
 
