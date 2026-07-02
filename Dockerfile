@@ -77,10 +77,6 @@ RUN echo 'eval "$(/home/claude/.local/bin/mise activate zsh)"' >> /home/claude/.
 
 RUN /home/claude/.local/bin/mise exec -- npm install -g @anthropic-ai/claude-code
 
-RUN echo '{}' > /home/claude/.claude.json
-
-RUN mkdir -p /home/claude/.claude
-
 WORKDIR /app
 
 RUN chown -R claude:claude /app
