@@ -63,7 +63,7 @@ docker compose exec claude-docker claude
 | Vim | apt | Text editor |
 | htop | apt | Interactive process viewer |
 | unzip | apt | Extracts `.zip` archives |
-| Claude Code | brew | AI coding assistant CLI |
+| Claude Code | npm | AI coding assistant CLI |
 
 ### Zsh Plugins
 
