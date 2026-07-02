@@ -13,11 +13,8 @@ Docker container for [Claude Code](https://docs.anthropic.com/en-us/docs/claude-
 # Create your .env file
 cp .env.example .env
 
-# Build
-docker compose build
-
-# Start the container in the background
-docker compose up -d
+# Build and start the container
+./start.sh
 
 # Enter the container
 docker compose exec claude-docker zsh
