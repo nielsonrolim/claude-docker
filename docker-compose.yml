@@ -13,7 +13,7 @@ services:
       - ${HOME}/.gitconfig:/home/claude/.gitconfig:ro
     stdin_open: true
     tty: true
-    restart: on-failure
+    restart: unless-stopped
     working_dir: /home/claude/Projects
     # networks:
     #   - network_name
