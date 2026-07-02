@@ -1,7 +1,7 @@
 services:
   claude-docker:
     build: .
-    container_name: claude-code
+    container_name: claude-docker
     env_file:
       - .env
     volumes:
@@ -17,6 +17,51 @@ services:
     working_dir: /home/claude/Projects
     # networks:
     #   - network_name
+
+  postgres:
+    image: postgres:16.7-alpine
+    ports:
+      - "5432:5432"
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: nielson
+      POSTGRES_USER: nielson
+      # POSTGRES_DB: lightlabs
+    command: postgres -c shared_preload_libraries=pg_stat_statements -c pg_stat_statements.track=all
+    volumes:
+      - db-data:/var/lib/postgresql/data
+
+  # valkey:
+  #   image: valkey/valkey:8-alpine
+  #   ports:
+  #     - '6379:6379'
+  #   restart: always
+  #   volumes:
+  #     - valkey-data:/data
+
+  # localstack:
+  #   image: localstack/localstack:4
+  #   ports:
+  #     - "4566:4566"
+  #   environment:
+  #     SERVICES: sqs
+  #     DEFAULT_REGION: us-east-2
+  #   volumes:
+  #     - localstack-data:/var/lib/localstack
+  #     - ./localstack/init-ready.d:/etc/localstack/init/ready.d
+
+  # chromium:
+  #   image: ghcr.io/browserless/chromium:latest
+  #   ports:
+  #     - '7777:3000'
+  #   environment:
+  #     DEBUG: '*'
+  #     TOKEN: '6R0W53R135510'
+
+volumes:
+  db-data:
+  # valkey-data:
+  # localstack-data:
 
 # networks:
 #   network_name:
