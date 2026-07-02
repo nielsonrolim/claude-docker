@@ -5,7 +5,7 @@ services:
     env_file:
       - .env
     volumes:
-      - ${HOME}/.claude:/home/claude/.claude
+      - ./.claude:/home/claude/.claude
       - ${HOME}/Projects:/home/claude/Projects
       - ${HOME}/.ssh:/home/claude/.ssh:ro
       - ${HOME}/.gitconfig:/home/claude/.gitconfig:ro

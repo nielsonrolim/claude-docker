@@ -88,7 +88,7 @@ alias tmux-main="tmux new-session -A -s main"
 
 | Host | Container | Permission |
 |------|-----------|------------|
-| `~/.claude` | `/home/claude/.claude` | RW |
+| `./.claude` | `/home/claude/.claude` | RW |
 | `~/Projects` | `/home/claude/Projects` | RW |
 | `~/.ssh` | `/home/claude/.ssh` | RO |
 | `~/.gitconfig` | `/home/claude/.gitconfig` | RO |
